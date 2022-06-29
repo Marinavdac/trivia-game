@@ -2,11 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import getAvatar from '../services/fetchGravatar';
+import fetchApiGame from '../services/fetchGame';
 
 class Game extends Component {
   render() {
     const { email, name, score } = this.props;
     const gravatarPic = getAvatar(email);
+    const tokenLocalStorage = localStorage.getItem('token');
+    const resultApi = fetchApiGame(tokenLocalStorage);
+    const response = resultApi.then((result) => result);
+    console.log(response);
     return (
       <div>
         <header>

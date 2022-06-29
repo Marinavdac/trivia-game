@@ -30,8 +30,7 @@
   width: 60vh;
 }
 
-.login-form input, 
-.login-form button {
+.login-form input, .login-form button {
   max-width: 100%;
   min-width: 68%;
   padding: 0.3rem;

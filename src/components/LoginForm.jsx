@@ -63,7 +63,7 @@ class LoginForm extends Component {
           <button
             type="button"
             data-testid="btn-settings"
-            onClick={ () => handleConfig()}
+            onClick={ () => handleConfig() }
           >
             Settings
           </button>
@@ -83,6 +83,7 @@ LoginForm.propTypes = {
   // addPlayerDispatch: PropTypes.func.isRequired,
   isDisabled: PropTypes.bool.isRequired,
   handleChange: PropTypes.func,
+  handleConfig: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,

@@ -17,7 +17,7 @@ class LoginForm extends Component {
 
   render() {
     const { isDisabled,
-      handleChange } = this.props;
+      handleChange, handleConfig } = this.props;
     return (
       <section className="login-section">
         <div className="login-form">
@@ -59,6 +59,13 @@ class LoginForm extends Component {
             }
           >
             Play
+          </button>
+          <button
+            type="button"
+            data-testid="btn-settings"
+            onClick={ () => handleConfig()}
+          >
+            Settings
           </button>
         </div>
       </section>

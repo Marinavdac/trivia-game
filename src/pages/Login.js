@@ -22,6 +22,11 @@ class Login extends Component {
     return this.setState({ isDisabled: true });
   }
 
+  handleConfig = () => {
+    const { history } = this.props;
+    history.push('/settings');
+  }
+
   render() {
     const { isDisabled } = this.state;
     const { handleChange } = this;
@@ -29,6 +34,7 @@ class Login extends Component {
     return (
       <LoginForm
         handleChange={ handleChange }
+        handleConfig={ this.handleConfig }
         isDisabled={ isDisabled }
         history={ history }
       />

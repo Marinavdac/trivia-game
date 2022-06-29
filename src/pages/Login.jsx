@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import LoginForm from '../components/LoginForm';
 
 class Login extends Component {
@@ -24,13 +25,21 @@ class Login extends Component {
   render() {
     const { isDisabled } = this.state;
     const { handleChange } = this;
+    const { history } = this.props;
     return (
       <LoginForm
         handleChange={ handleChange }
         isDisabled={ isDisabled }
+        history={ history }
       />
     );
   }
 }
+
+Login.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default Login;

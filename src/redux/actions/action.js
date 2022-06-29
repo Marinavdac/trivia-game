@@ -1,5 +1,25 @@
+import fetchApiFunction from '../../services/fetchApi';
+
 export const ADD_PLAYER = 'ADD_PLAYER';
 export const addPlayer = (playerInfo) => ({
   type: ADD_PLAYER,
   payload: playerInfo,
 });
+
+export const FETCH_TOKEN_FAIL = 'FETCH_TOKEN_FAIL';
+export const fetchTokenFail = (err) => ({
+  type: FETCH_TOKEN_FAIL,
+  error: err,
+});
+
+export const FETCH_TOKEN_SUCCESS = 'FETCH_TOKEN_SUCCESS';
+export const fetchTokenSuccess = (token) => ({
+  type: FETCH_TOKEN_SUCCESS,
+  payload: token,
+});
+
+export const apiThunk = () => (dispatch) => {
+  fetchApiFunction()
+    .then((response) => dispatch(fetchTokenSuccess(response)))
+    .catch((error) => dispatch(fetchTokenFail(error)));
+};

@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
-import { ADD_PLAYER } from '../actions/action';
+import { ADD_PLAYER, FETCH_TOKEN_FAIL, FETCH_TOKEN_SUCCESS } from '../actions/action';
 
 const INITIAL_STATE = {
   player: {
     name: '',
     assertions: 0,
     score: 0,
-    gravatarEmail: '' },
+    gravatarEmail: '',
+  },
+  token: '',
 };
 
 const playerReducer = (state = INITIAL_STATE, action) => {
@@ -15,6 +17,16 @@ const playerReducer = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       player: action.payload,
+    };
+  case FETCH_TOKEN_FAIL:
+    return {
+      ...state,
+      token: action.error,
+    };
+  case FETCH_TOKEN_SUCCESS:
+    return {
+      ...state,
+      token: action.payload,
     };
   default:
     return state;

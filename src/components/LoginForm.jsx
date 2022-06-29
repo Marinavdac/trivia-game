@@ -4,10 +4,19 @@ import PropTypes from 'prop-types';
 import { addPlayer } from '../redux/actions/action';
 import './style.css';
 import logo from '../trivia.png';
+import fetchApiFuntion from '../services/fetchApi';
 
 class LoginForm extends Component {
+  handleClick = async () => {
+    const { history } = this.props;
+    const api = await fetchApiFuntion();
+    localStorage.setItem('token', (api.token));
+    history.push('/trivia');
+    console.log(this.props);
+  }
+
   render() {
-    const { addPlayerDispatch, isDisabled,
+    const { isDisabled,
       handleChange } = this.props;
     return (
       <section className="login-section">
@@ -45,10 +54,9 @@ class LoginForm extends Component {
             type="button"
             data-testid="btn-play"
             disabled={ isDisabled }
-            onClick={ () => {
-              addPlayerDispatch(this.state);
-              // history.push('/trivia');
-            } }
+            onClick={
+              this.handleClick
+            }
           >
             Play
           </button>
@@ -65,12 +73,12 @@ const mapDispatchToProps = (dispatch) => ({
 LoginForm.propTypes = {
   // name: PropTypes.string.isRequired,
   // email: PropTypes.string.isRequired,
-  addPlayerDispatch: PropTypes.func.isRequired,
+  // addPlayerDispatch: PropTypes.func.isRequired,
   isDisabled: PropTypes.bool.isRequired,
   handleChange: PropTypes.func,
-  // history: PropTypes.shape({
-  //   push: PropTypes.func.isRequired,
-  // }).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 LoginForm.defaultProps = {

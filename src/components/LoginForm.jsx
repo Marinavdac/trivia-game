@@ -7,70 +7,75 @@ import logo from '../trivia.png';
 import fetchApiFuntion from '../services/fetchApi';
 
 class LoginForm extends Component {
-  handleClick = async () => {
-    const { history } = this.props;
-    const api = await fetchApiFuntion();
-    localStorage.setItem('token', (api.token));
-    history.push('/trivia');
-    console.log(this.props);
-  }
+handleClick = async () => {
+  const { history, addPlayerDispatch, nome, email } = this.props;
+  const obj = {
+    name: nome,
+    assertions: 0,
+    score: 0,
+    gravatarEmail: email,
+  };
 
-  render() {
-    const { isDisabled,
-      handleChange, handleConfig } = this.props;
-    return (
-      <section className="login-section">
-        <div className="login-form">
-          <img
-            className="login-image"
-            src={ logo }
-            alt="trivia-logo"
+  const api = await fetchApiFuntion();
+  localStorage.setItem('token', (api.token));
+  history.push('/game');
+  addPlayerDispatch(obj);
+}
+
+render() {
+  const { isDisabled,
+    handleChange, handleConfig } = this.props;
+  return (
+    <section className="login-section">
+      <div className="login-form">
+        <img
+          className="login-image"
+          src={ logo }
+          alt="trivia-logo"
+        />
+        <label htmlFor="player-name">
+          Nome:
+          <input
+            data-testid="input-player-name"
+            type="text"
+            id="player-name"
+            name="name"
+            placeholder="Ex.: João da Silva"
+            onChange={ handleChange }
           />
-          <label htmlFor="player-name">
-            Nome:
-            <input
-              data-testid="input-player-name"
-              type="text"
-              id="player-name"
-              name="name"
-              placeholder="Ex.: João da Silva"
-              onChange={ handleChange }
-              // value={ name }
-            />
-          </label>
-          <label htmlFor="email">
-            Email:
-            <input
-              data-testid="input-gravatar-email"
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Ex.: joao@dasilva.com"
-              onChange={ handleChange }
-              // value={ email }
-            />
-          </label>
-          <button
-            type="button"
-            data-testid="btn-play"
-            disabled={ isDisabled }
-            onClick={
-              this.handleClick
-            }
-          >
-            Play
-          </button>
-          <button
-            type="button"
-            data-testid="btn-settings"
-            onClick={ () => handleConfig() }
-          >
-            Settings
-          </button>
-        </div>
-      </section>
-    );
-  }
+        </label>
+        <label htmlFor="email">
+          Email:
+          <input
+            data-testid="input-gravatar-email"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Ex.: joao@dasilva.com"
+            onChange={ handleChange }
+          />
+        </label>
+        <button
+          type="button"
+          data-testid="btn-play"
+          disabled={ isDisabled }
+          onClick={
+            this.handleClick
+          }
+        >
+          Play
+        </button>
+        <button
+          type="button"
+          data-testid="btn-settings"
+          onClick={ () => handleConfig() }
+        >
+          Settings
+        </button>
+      </div>
+    </section>
+  );
+}
 }
 
 const mapDispatchToProps = (dispatch) => ({
@@ -78,9 +83,9 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 LoginForm.propTypes = {
-  // name: PropTypes.string.isRequired,
-  // email: PropTypes.string.isRequired,
-  // addPlayerDispatch: PropTypes.func.isRequired,
+  nome: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  addPlayerDispatch: PropTypes.func.isRequired,
   isDisabled: PropTypes.bool.isRequired,
   handleChange: PropTypes.func,
   handleConfig: PropTypes.func.isRequired,

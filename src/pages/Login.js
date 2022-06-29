@@ -23,23 +23,24 @@ handleButton = () => {
 }
 
 handleConfig = () => {
-  const { history } = this.props;
-  history.push('/settings');
-}
+    const { history } = this.props;
+    history.push('/settings');
+  }
 
 render() {
-  const { isDisabled } = this.state;
-  const { handleChange, handleConfig } = this;
-  const { history } = this.props;
-  return (
-    <LoginForm
-      handleChange={ handleChange }
-      handleConfig={ handleConfig }
-      isDisabled={ isDisabled }
-      history={ history }
-    />
-  );
-}
+    const { isDisabled } = this.state;
+    const { handleChange, handleConfig } = this;
+    const { history } = this.props;
+    return (
+      <LoginForm
+        handleChange={ handleChange }
+        handleConfig={ handleConfig }
+        isDisabled={ isDisabled }
+        history={ history }
+      />
+    );
+  }
+
 }
 
 Login.propTypes = {

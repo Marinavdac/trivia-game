@@ -4,38 +4,36 @@ import PropTypes from 'prop-types';
 import getAvatar from '../services/fetchGravatar';
 
 class Game extends Component {
-  state = {
-    profileGravatar: '',
+  render() {
+    const { email, name, score } = this.props;
+    const gravatarPic = getAvatar(email);
+    return (
+      <div>
+        <header>
+          <img
+            src={ gravatarPic }
+            alt="profile"
+            data-testid="header-profile-picture"
+          />
+          <h1 data-testid="header-player-name">{ name }</h1>
+          <h2 data-testid="header-score">{ `Placar: ${score}` }</h2>
+        </header>
+      </div>
+    );
   }
-
-componentDidMount = async () => {
-  const { email } = this.props;
-  const fetchG = await getAvatar(email);
-  this.setState({
-    profileGravatar: fetchG,
-  });
-}
-
-render() {
-  const { profileGravatar } = this.state;
-  return (
-    <div>
-      <header>
-        <img src={ profileGravatar } alt="profile" data-testid="header-profile-picture" />
-        <h1 data-testid="header-player-name">Nome</h1>
-        <h2 data-testid="header-score">Placar</h2>
-      </header>
-    </div>
-  );
-}
 }
 
 const mapStateToProps = (state) => ({
-  email: state.player.gravatarEmail,
+  email: state.playerReducer.player.gravatarEmail,
+  name: state.playerReducer.player.name,
+  score: state.playerReducer.player.score,
+
 });
 
 Game.propTypes = {
   email: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
 };
 
 export default connect(mapStateToProps)(Game);

@@ -6,7 +6,7 @@ const INITIAL_STATE = {
     name: '',
     assertions: 0,
     score: 0,
-    gravatarEmail: 'marinavdac@gmail.com',
+    gravatarEmail: '',
   },
   token: '',
 };

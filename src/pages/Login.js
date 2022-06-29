@@ -29,12 +29,12 @@ class Login extends Component {
 
   render() {
     const { isDisabled } = this.state;
-    const { handleChange } = this;
+    const { handleChange, handleConfig } = this;
     const { history } = this.props;
     return (
       <LoginForm
         handleChange={ handleChange }
-        handleConfig={ this.handleConfig }
+        handleConfig={ handleConfig }
         isDisabled={ isDisabled }
         history={ history }
       />

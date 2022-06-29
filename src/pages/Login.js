@@ -22,12 +22,12 @@ class Login extends Component {
     return this.setState({ isDisabled: true });
   }
 
-  handleConfig = () => {
+handleConfig = () => {
     const { history } = this.props;
     history.push('/settings');
   }
 
-  render() {
+render() {
     const { isDisabled } = this.state;
     const { handleChange } = this;
     const { history } = this.props;

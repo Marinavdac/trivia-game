@@ -14,7 +14,7 @@ const playerReducer = (state = INITIAL_STATE, action) => {
   case ADD_PLAYER:
     return {
       ...state,
-      player: { ...action.payload },
+      player: action.payload,
     };
   default:
     return state;

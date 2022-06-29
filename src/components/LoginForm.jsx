@@ -46,7 +46,7 @@ class LoginForm extends Component {
             data-testid="btn-play"
             disabled={ isDisabled }
             onClick={ () => {
-              addPlayerDispatch({ ...this.state });
+              addPlayerDispatch(this.state);
               // history.push('/trivia');
             } }
           >

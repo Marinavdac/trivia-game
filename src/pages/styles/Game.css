@@ -1,0 +1,27 @@
+.trivia-game-screen {
+  background-color: grey;
+  height: 90vh;
+}
+
+.player-header-info {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 30vh;
+  margin: auto;
+  max-width: fit-content;
+}
+
+.questionCard {
+  background-color: white;
+  border-radius: 0.8rem;
+  margin: 3rem;
+  padding: 6rem;
+}
+
+.answer-list {
+  display: flex;
+  flex-direction: row;
+  order: -1;
+}
+

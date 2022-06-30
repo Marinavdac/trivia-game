@@ -4,9 +4,14 @@ import PropTypes from 'prop-types';
 import getAvatar from '../services/fetchGravatar';
 
 class Feedback extends Component {
-handleClick = () => {
+handleClickPlayAgain = () => {
   const { history } = this.props;
   history.push('/');
+}
+
+handleClickRanking = () => {
+  const { history } = this.props;
+  history.push('/ranking');
 }
 
 render() {
@@ -36,9 +41,16 @@ render() {
       <button
         type="button"
         data-testid="btn-play-again"
-        onClick={ this.handleClick }
+        onClick={ this.handleClickPlayAgain }
       >
         Play Again
+      </button>
+      <button
+        type="button"
+        data-testid="btn-ranking"
+        onClick={ this.handleClickRanking }
+      >
+        Ranking
       </button>
     </>
   );

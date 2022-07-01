@@ -57,6 +57,13 @@ render() {
 }
 }
 
+const mapStateToProps = (state) => ({
+  email: state.playerReducer.player.gravatarEmail,
+  name: state.playerReducer.player.name,
+  score: state.playerReducer.player.score,
+  assertions: state.playerReducer.player.assertions,
+});
+
 Feedback.propTypes = {
   email: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
@@ -66,12 +73,5 @@ Feedback.propTypes = {
     push: PropTypes.func.isRequired,
   }).isRequired,
 };
-
-const mapStateToProps = (state) => ({
-  email: state.playerReducer.player.gravatarEmail,
-  name: state.playerReducer.player.name,
-  score: state.playerReducer.player.score,
-  assertions: state.playerReducer.player.assertions,
-});
 
 export default connect(mapStateToProps)(Feedback);

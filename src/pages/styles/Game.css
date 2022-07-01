@@ -1,27 +1,38 @@
 .trivia-game-screen {
   background-color: grey;
   height: 90vh;
-}
-
-.player-header-info {
+  }
+  
+  .player-header-info {
   background-color: white;
   display: flex;
   flex-direction: column;
   height: 30vh;
   margin: auto;
   max-width: fit-content;
-}
-
-.questionCard {
+  }
+  
+  .questionCard {
   background-color: white;
   border-radius: 0.8rem;
   margin: 3rem;
   padding: 6rem;
-}
-
-.answer-list {
+  }
+  
+  .answer-list {
   display: flex;
   flex-direction: row;
   order: -1;
-}
-
+  }
+  
+  .invisible {
+  border: none;
+  }
+  
+  .right-answer {
+  border: 3px solid rgb(6, 240, 15);
+  }
+  
+  .wrong-answer {
+  border: 3px solid rgb(255, 0, 0);
+  } 

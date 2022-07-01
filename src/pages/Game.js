@@ -15,6 +15,7 @@ class Game extends Component {
   async componentDidMount() {
     const tokenLocalStorage = localStorage.getItem('token');
     const resultApi = await fetchApiGame(tokenLocalStorage);
+
     this.setState({
       cardsInfo: resultApi.results,
       responseCode: resultApi.response_code,
@@ -22,11 +23,9 @@ class Game extends Component {
   }
 
   render() {
-    const { email, name, score } = this.props;
+    const { email, name, score, history } = this.props;
     const gravatarPic = getAvatar(email);
     const { cardsInfo, responseCode } = this.state;
-    console.log(cardsInfo);
-    const { history } = this.props;
     const invalidToken = 3;
     return (
       <div className="trivia-game-screen">
@@ -41,7 +40,6 @@ class Game extends Component {
             <h1 data-testid="header-player-name">{ name }</h1>
             <h2 data-testid="header-score">{`Placar: ${score}`}</h2>
           </section>
-
           {cardsInfo && <QuestionCard
             cardsInfo={ cardsInfo }
           />}

@@ -29,12 +29,11 @@ handleConfig = () => {
 
 render() {
   const { isDisabled, name, email } = this.state;
-  const { handleChange, handleConfig } = this;
   const { history } = this.props;
   return (
     <LoginForm
-      handleChange={ handleChange }
-      handleConfig={ handleConfig }
+      handleChange={ this.handleChange }
+      handleConfig={ this.handleConfig }
       isDisabled={ isDisabled }
       history={ history }
       nome={ name }

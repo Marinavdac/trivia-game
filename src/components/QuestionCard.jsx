@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import fetchApiGame from '../services/fetchGame';
 import Timer from './Timer';
+import './QuestionCard.css';
 
 class QuestionCard extends React.Component {
   state = {
@@ -17,9 +18,9 @@ class QuestionCard extends React.Component {
       counter: timerState,
       isTimeOut: timeOut,
     });
-    console.log('counter do getTimer', counter)
-    console.log('timerState do getTimer', timerState)
-    console.log('timeout do getTimer', timeOut)
+    console.log('counter do getTimer', counter);
+    console.log('timerState do getTimer', timerState);
+    console.log('timeout do getTimer', timeOut);
   }
 
   // shouldComponentUpdate = (nextProps, nextState) => {
@@ -87,7 +88,7 @@ class QuestionCard extends React.Component {
           <div
             className="answer-list"
           >
-            <div data-testid="answer-options">
+            <div data-testid="answer-options" className="options">
               {this.renderButtons()?.sort(() => Math.random() - limit)}
             </div>
           </div>

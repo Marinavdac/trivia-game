@@ -8,20 +8,26 @@ class QuestionCard extends React.Component {
     index: 0,
     arrayAnswers: [],
     counter: 0,
+    isTimeOut: false,
   }
 
-  getTimer = (timerState) => {
+  getTimer = (timerState, timeOut) => {
+    const { counter } = this.state;
     this.setState({
       counter: timerState,
+      isTimeOut: timeOut,
     });
+    console.log('counter do getTimer', counter)
+    console.log('timerState do getTimer', timerState)
+    console.log('timeout do getTimer', timeOut)
   }
 
-  shouldComponentUpdate = (nextProps, nextState) => {
-    const { counter } = this.state;
-    if (nextState.counter === counter) {
-      return true;
-    }
-  }
+  // shouldComponentUpdate = (nextProps, nextState) => {
+  //   const { counter } = this.state;
+  //   if (nextState.counter === counter) {
+  //     return true;
+  //   }
+  // }
 
   renderButtons = () => {
     const correctAnswer = 'correct-answer';
@@ -67,11 +73,14 @@ class QuestionCard extends React.Component {
 
   render() {
     const { cardsInfo } = this.props;
-    const { index } = this.state;
+    const { index, isTimeOut } = this.state;
     const limit = 0.5;
     return (
       <div className="questionCard">
-        <Timer parentCallBack={ this.getTimer } />
+        <Timer
+          parentCallBack={ this.getTimer }
+          isTimeOut={ isTimeOut }
+        />
         <p data-testid="question-category">{`Category: ${cardsInfo[index]?.category}`}</p>
         <div>
           <p data-testid="question-text">{cardsInfo[index]?.question}</p>
@@ -83,7 +92,7 @@ class QuestionCard extends React.Component {
             </div>
           </div>
         </div>
-        <button type="button" data-testid="btn-next">Next</button>
+        { isTimeOut && <button type="button" data-testid="btn-next">Next</button>}
       </div>
 
     );

@@ -1,8 +1,8 @@
 * {
   box-sizing: border-box;
+  font-family: poppins , sans-serif;
   margin: 0;
   padding: 0;
-  font-family: poppins, sans-serif;
 }
 
 .login-section {
@@ -15,33 +15,32 @@
 
 .login-image {
   width: 40rem;
-  animation: shake infinite 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 
 .login-form {
+  align-items: center;
   background-color: rgb(255, 255, 255, 0.5);
-  width: 60%;
+  border: 3px solid gold;
   border-radius: 10px;
+  box-shadow: 0 0 3em gold;
+  color: rgb(92, 0, 128);
   display: flex;
   flex-direction: column;
-  padding: 2rem;
-  align-items: center;
   margin: 1rem auto;
-  box-shadow: 0 0 3em gold;
-  border: 3px solid gold;
-  color: rgb(92, 0, 128);
+  padding: 2rem;
+  width: 60%;
 }
 
 .login-form input {
-  width: 100%;
-  margin-bottom: 1rem;
-  border: none;
-  height: 2rem;
-  outline: 0;
   background-color: rgba(248, 248, 248, 0.1);
+  border: none;
   color: white;
-  font-weight: 600;
   font-size: 1.1rem;
+  font-weight: 600;
+  height: 2rem;
+  margin-bottom: 1rem;
+  outline: 0;
+  width: 100%;
 }
 
 .login-form input:focus {
@@ -56,15 +55,15 @@
 }
 
 .login-form button {
-  width: 60%;
+  background-color: #eec36e;
+  border: none;
+  border-radius: 100px;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
   margin-bottom: 1rem;
   padding: 0.5rem;
-  border-radius: 100px;
-  border: none;
-  cursor: pointer;
-  background-color: #eec36e;
-  color: white;
-  font-weight: 700;
+  width: 60%;
 }
 
 .login-form button:disabled {

@@ -1,17 +1,17 @@
 * {
   box-sizing: border-box;
+  font-family: poppins , sans-serif;
   margin: 0;
   padding: 0;
-  font-family: poppins, sans-serif;
 }
 
 .trivia-game-screen {
+  align-items: center;
   background-image: linear-gradient(45deg, #eec36e, #8165e7, #cfb419, #502064);
   background-size: 300% 300%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 100vh;
 }
 
 .game-image {
@@ -19,17 +19,17 @@
 }
 
 .game-questions {
-  background-color: rgb(255, 255, 255, 0.5);
-  border-radius: 10px;
-  display: flex;
-  padding: 2rem;
   align-items: center;
-  margin: 1rem auto;
-  box-shadow: 0 0 3em gold;
+  background-color: rgb(255, 255, 255, 0.5);
   border: 3px solid gold;
+  border-radius: 10px;
+  box-shadow: 0 0 3em gold;
   color: rgb(92, 0, 128);
+  display: flex;
+  margin: 1rem auto;
   min-height: 23em;
   min-width: 80rem;
+  padding: 2rem;
 }
 
 .game-questions img {
@@ -37,7 +37,7 @@
 }
 
 .player-header-info {
-text-align: center;
-margin: 0 2rem;
-margin-right: 5rem;
+  margin: 0 2rem;
+  margin-right: 5rem;
+  text-align: center;
 }

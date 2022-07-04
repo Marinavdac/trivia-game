@@ -1,5 +1,8 @@
 import { combineReducers } from 'redux';
-import { ADD_PLAYER, FETCH_TOKEN_FAIL, FETCH_TOKEN_SUCCESS } from '../actions/action';
+import {
+  ADD_PLAYER, FETCH_TOKEN_FAIL,
+  FETCH_TOKEN_SUCCESS,
+} from '../actions/action';
 
 const INITIAL_STATE = {
   player: {

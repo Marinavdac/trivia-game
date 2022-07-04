@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import { connect } from 'react-redux';
-import './Timer.css';
 
 class Timer extends Component {
 state = {
@@ -49,12 +47,8 @@ componentWillUnmount() {
 }
 
 Timer.propTypes = {
-  // getTimer: PropTypes.func.isRequired,
+
   parentCallBack: PropTypes.func.isRequired,
 };
-
-// const dispatchToProps = (dispatch) => {
-//
-// }
 
 export default Timer;

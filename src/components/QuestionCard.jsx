@@ -7,16 +7,16 @@ class QuestionCard extends React.Component {
     index: 0,
     hasClicked: false,
     answerStatus: {
-      wrong: '',
-      correct: '',
+      wrong: 'button',
+      correct: 'button',
     },
   }
 
   handleClick = () => {
     this.setState({
       answerStatus: {
-        wrong: 'wrong',
-        correct: 'correct',
+        wrong: 'button-wrong',
+        correct: 'button-correct',
       },
       hasClicked: true,
     });
@@ -29,8 +29,8 @@ class QuestionCard extends React.Component {
         index: prevState.index + 1,
         answerStatus: {
           ...prevState.answerStatus,
-          wrong: '',
-          correct: '',
+          wrong: 'button',
+          correct: 'button',
         },
         hasClicked: false,
       }));
@@ -71,6 +71,7 @@ class QuestionCard extends React.Component {
                     onClick={ this.handleClick }
                     disabled={ isTimeOut }
                     id={ answersIds[i] }
+
                   >
                     {answer}
                   </button>

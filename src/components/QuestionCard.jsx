@@ -1,8 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import fetchApiGame from '../services/fetchGame';
-import Timer from './Timer';
-import './QuestionCard.css';
 
 class QuestionCard extends React.Component {
   state = {
@@ -12,47 +9,6 @@ class QuestionCard extends React.Component {
       wrong: '',
       correct: '',
     },
-    arrayAnswers: [],
-    counter: 0,
-    isTimeOut: false,
-  }
-
-  getTimer = (timerState, timeOut) => {
-    const { counter } = this.state;
-    this.setState({
-      counter: timerState,
-      isTimeOut: timeOut,
-    });
-    console.log('counter do getTimer', counter);
-    console.log('timerState do getTimer', timerState);
-    console.log('timeout do getTimer', timeOut);
-  }
-
-  // shouldComponentUpdate = (nextProps, nextState) => {
-  //   const { counter } = this.state;
-  //   if (nextState.counter === counter) {
-  //     return true;
-  //   }
-  // }
-
-  renderButtons = () => {
-    const correctAnswer = 'correct-answer';
-    const { arrayAnswers } = this.state;
-    const array = ['wrong-answer-1', 'wrong-answer-2', 'wrong-answer-3',
-      'wrong-answer-4', 'wrong-answer-5'];
-    const btns = arrayAnswers[0]?.map((answer, index) => (
-      <button
-        key={ index }
-        type="button"
-        data-testid={ index === 0 ? correctAnswer : array[index] }
-        name={ index === 0 ? correctAnswer : 'wrong-answer' }
-        className="btn"
-        onClick={ this.handleClick }
-      >
-        {answer}
-      </button>
-    ));
-    return btns;
   }
 
   handleClick = () => {
@@ -119,24 +75,6 @@ class QuestionCard extends React.Component {
                   </button>
                 )).sort(() => Math.random() - limit)}
               </div>
-  render() {
-    const { cardsInfo } = this.props;
-    const { index, isTimeOut } = this.state;
-    const limit = 0.5;
-    return (
-      <div className="questionCard">
-        <Timer
-          parentCallBack={ this.getTimer }
-          isTimeOut={ isTimeOut }
-        />
-        <p data-testid="question-category">{`Category: ${cardsInfo[index]?.category}`}</p>
-        <div>
-          <p data-testid="question-text">{cardsInfo[index]?.question}</p>
-          <div
-            className="answer-list"
-          >
-            <div data-testid="answer-options" className="options">
-              {this.renderButtons()?.sort(() => Math.random() - limit)}
             </div>
           </div>
           {(isTimeOut || hasClicked)

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import './QuestionCard.css';
 
 class QuestionCard extends React.Component {
   state = {
@@ -60,7 +61,7 @@ class QuestionCard extends React.Component {
             <div
               className="answer-list"
             >
-              <div data-testid="answer-options">
+              <div data-testid="answer-options" className="options">
                 {answers[index]?.map((answer, i) => (
                   <button
                     key={ i }

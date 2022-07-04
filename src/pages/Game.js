@@ -6,12 +6,13 @@ import fetchApiGame from '../services/fetchGame';
 import './styles/Game.css';
 import QuestionCard from '../components/QuestionCard';
 import Timer from '../components/Timer';
+import logo from '../images/TRV_Logo.png';
 
 class Game extends Component {
   state = {
     cardsInfo: [],
     responseCode: 0,
-    counter: 0,
+    // counter: 0,
     isTimeOut: false,
   }
 
@@ -26,7 +27,7 @@ class Game extends Component {
 
   getTimer = (timerState, timeOut) => {
     this.setState({
-      counter: timerState,
+      // counter: timerState,
       isTimeOut: timeOut,
     });
   }
@@ -38,25 +39,32 @@ class Game extends Component {
     const invalidToken = 3;
     return (
       <div className="trivia-game-screen">
+        <img
+          className="game-image"
+          src={ logo }
+          alt="trivia-logo"
+        />
         {responseCode === invalidToken && history.push('/')}
         <header>
-          <section className="player-header-info">
-            <img
-              src={ gravatarPic }
-              alt="profile"
-              data-testid="header-profile-picture"
+          <div className="game-questions">
+            <section className="player-header-info">
+              <img
+                src={ gravatarPic }
+                alt="profile"
+                data-testid="header-profile-picture"
+              />
+              <h1 data-testid="header-player-name">{ name }</h1>
+              <h2 data-testid="header-score">{`Placar: ${score}`}</h2>
+            </section>
+            <Timer
+              parentCallBack={ this.getTimer }
+              isTimeOut={ isTimeOut }
             />
-            <h1 data-testid="header-player-name">{ name }</h1>
-            <h2 data-testid="header-score">{`Placar: ${score}`}</h2>
-          </section>
-          <Timer
-            parentCallBack={ this.getTimer }
-            isTimeOut={ isTimeOut }
-          />
-          {cardsInfo && <QuestionCard
-            cardsInfo={ cardsInfo }
-            isTimeOut={ isTimeOut }
-          />}
+            {cardsInfo && <QuestionCard
+              cardsInfo={ cardsInfo }
+              isTimeOut={ isTimeOut }
+            />}
+          </div>
         </header>
       </div>
     );

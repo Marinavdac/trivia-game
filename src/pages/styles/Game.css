@@ -11,11 +11,11 @@
   background-size: 300% 300%;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .game-image {
-  width: 40rem;
+  width: 30rem;
 }
 
 .game-questions {
@@ -43,7 +43,7 @@
 }
 
 .correct {
-  border: 3px solid rgb(6,240,15);
+  border: 3px solid rgb(6, 240, 15);
 }
 
 .wrong {

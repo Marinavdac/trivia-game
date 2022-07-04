@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './Timer.css';
 
 class Timer extends Component {
 state = {

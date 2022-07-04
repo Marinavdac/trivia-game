@@ -35,3 +35,14 @@
   min-width: 68%;
   padding: 0.3rem;
 }
+
+.timer {
+  text-align: center;
+  background-color: grey;
+  border: 1px solid;
+  margin: 1rem auto;
+  padding: 2rem;
+  color: white;
+  width: fit-content;
+
+}

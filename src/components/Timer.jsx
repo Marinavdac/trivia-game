@@ -1,29 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+// import { connect } from 'react-redux';
 
 class Timer extends Component {
 state = {
-  timer: 30,
+  timer: 8,
   timerId: '',
 }
-
-// shouldComponentUpdate = (nextProps, nextState) => {
-//   const { timer } = this.state;
-//   const { parentCallBack } = this.props;
-//   if (nextState.timer !== timer) {
-//     parentCallBack(timer);
-//     return true;
-//   }
-// }
-
-// componentDidMount = () => {
-//   const sec = 1000;
-//   setInterval(() => {
-//     this.setState((prevState) => ({
-//       timer: prevState.timer > 0 ? (prevState.timer - 1) : 'timeout',
-//     }));
-//   }, sec);
-// }
 
 // https://stackoverflow.com/questions/36299174/setinterval-in-a-react-app
 
@@ -59,7 +42,7 @@ componentWillUnmount() {
   render() {
     const { timer } = this.state;
     return (
-      <h1>{ timer }</h1>
+      <h1 className="timer">{ timer }</h1>
     );
   }
 }
@@ -68,5 +51,9 @@ Timer.propTypes = {
   // getTimer: PropTypes.func.isRequired,
   parentCallBack: PropTypes.func.isRequired,
 };
+
+// const dispatchToProps = (dispatch) => {
+//
+// }
 
 export default Timer;

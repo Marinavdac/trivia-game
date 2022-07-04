@@ -5,27 +5,36 @@ import getAvatar from '../services/fetchGravatar';
 import fetchApiGame from '../services/fetchGame';
 import './styles/Game.css';
 import QuestionCard from '../components/QuestionCard';
+import Timer from '../components/Timer';
 
 class Game extends Component {
   state = {
     cardsInfo: [],
     responseCode: 0,
+    counter: 0,
+    isTimeOut: false,
   }
 
   async componentDidMount() {
     const tokenLocalStorage = localStorage.getItem('token');
     const resultApi = await fetchApiGame(tokenLocalStorage);
-
     this.setState({
       cardsInfo: resultApi.results,
       responseCode: resultApi.response_code,
     });
   }
 
+  getTimer = (timerState, timeOut) => {
+    this.setState({
+      counter: timerState,
+      isTimeOut: timeOut,
+    });
+  }
+
   render() {
     const { email, name, score, history } = this.props;
     const gravatarPic = getAvatar(email);
-    const { cardsInfo, responseCode } = this.state;
+    const { cardsInfo, responseCode, isTimeOut } = this.state;
     const invalidToken = 3;
     return (
       <div className="trivia-game-screen">
@@ -40,8 +49,13 @@ class Game extends Component {
             <h1 data-testid="header-player-name">{ name }</h1>
             <h2 data-testid="header-score">{`Placar: ${score}`}</h2>
           </section>
+          <Timer
+            parentCallBack={ this.getTimer }
+            isTimeOut={ isTimeOut }
+          />
           {cardsInfo && <QuestionCard
             cardsInfo={ cardsInfo }
+            isTimeOut={ isTimeOut }
           />}
         </header>
       </div>

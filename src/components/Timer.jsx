@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './Timer.css';
 
 class Timer extends Component {
 state = {
@@ -59,7 +60,7 @@ componentWillUnmount() {
   render() {
     const { timer } = this.state;
     return (
-      <h1>{ timer }</h1>
+      <h1 className="timer">{ timer }</h1>
     );
   }
 }

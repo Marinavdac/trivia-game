@@ -1,28 +1,45 @@
+* {
+  box-sizing: border-box;
+  font-family: poppins , sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
 .trivia-game-screen {
-  background-color: grey;
-  height: 90vh;
+  align-items: center;
+  background-image: linear-gradient(45deg, #eec36e, #8165e7, #cfb419, #502064);
+  background-size: 300% 300%;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.game-image {
+  width: 40rem;
+}
+
+.game-questions {
+  align-items: center;
+  background-color: rgb(255, 255, 255, 0.5);
+  border: 3px solid gold;
+  border-radius: 10px;
+  box-shadow: 0 0 3em gold;
+  color: rgb(92, 0, 128);
+  display: flex;
+  margin: 1rem auto;
+  min-height: 23em;
+  min-width: 80rem;
+  padding: 2rem;
+}
+
+.game-questions img {
+  width: 4rem;
 }
 
 .player-header-info {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  height: 30vh;
-  margin: auto;
-  max-width: fit-content;
-}
-
-.questionCard {
-  background-color: white;
-  border-radius: 0.8rem;
-  margin: 3rem;
-  padding: 6rem;
-}
-
-.answer-list {
-  display: flex;
-  flex-direction: row;
-  order: -1;
+  margin: 0 2rem;
+  margin-right: 5rem;
+  text-align: center;
 }
 
 .correct {

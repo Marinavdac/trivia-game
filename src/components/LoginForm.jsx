@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addPlayer } from '../redux/actions/action';
-import './style.css';
-import logo from '../trivia.png';
+import './Login.css';
+import logo from '../images/TRV_Logo.png';
 import fetchApiFuntion from '../services/fetchApi';
 
 class LoginForm extends Component {
@@ -27,51 +27,53 @@ render() {
     handleChange, handleConfig } = this.props;
   return (
     <section className="login-section">
-      <div className="login-form">
+      <div>
         <img
           className="login-image"
           src={ logo }
           alt="trivia-logo"
         />
-        <label htmlFor="player-name">
-          Nome:
-          <input
-            data-testid="input-player-name"
-            type="text"
-            id="player-name"
-            name="name"
-            placeholder="Ex.: João da Silva"
-            onChange={ handleChange }
-          />
-        </label>
-        <label htmlFor="email">
-          Email:
-          <input
-            data-testid="input-gravatar-email"
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Ex.: joao@dasilva.com"
-            onChange={ handleChange }
-          />
-        </label>
-        <button
-          type="button"
-          data-testid="btn-play"
-          disabled={ isDisabled }
-          onClick={
-            this.handleClick
-          }
-        >
-          Play
-        </button>
-        <button
-          type="button"
-          data-testid="btn-settings"
-          onClick={ () => handleConfig() }
-        >
-          Settings
-        </button>
+        <div className="login-form">
+          <label htmlFor="player-name">
+            Nome:
+            <input
+              data-testid="input-player-name"
+              type="text"
+              id="player-name"
+              name="name"
+              placeholder="Ex.: João da Silva"
+              onChange={ handleChange }
+            />
+          </label>
+          <label htmlFor="email">
+            Email:
+            <input
+              data-testid="input-gravatar-email"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Ex.: joao@dasilva.com"
+              onChange={ handleChange }
+            />
+          </label>
+          <button
+            type="button"
+            data-testid="btn-play"
+            disabled={ isDisabled }
+            onClick={
+              this.handleClick
+            }
+          >
+            Play
+          </button>
+          <button
+            type="button"
+            data-testid="btn-settings"
+            onClick={ () => handleConfig() }
+          >
+            Settings
+          </button>
+        </div>
       </div>
     </section>
   );

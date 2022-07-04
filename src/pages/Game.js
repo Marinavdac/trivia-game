@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import getAvatar from '../services/fetchGravatar';
 import fetchApiGame from '../services/fetchGame';
+import logo from '../images/TRV_Logo.png';
 import './styles/Game.css';
 import QuestionCard from '../components/QuestionCard';
 import Timer from '../components/Timer';
@@ -38,6 +39,11 @@ class Game extends Component {
     const invalidToken = 3;
     return (
       <div className="trivia-game-screen">
+        <img
+          className="game-image"
+          src={ logo }
+          alt="trivia-logo"
+        />
         {responseCode === invalidToken && history.push('/')}
         <header>
           <section className="player-header-info">
@@ -57,6 +63,20 @@ class Game extends Component {
             cardsInfo={ cardsInfo }
             isTimeOut={ isTimeOut }
           />}
+          <div className="game-questions">
+            <section className="player-header-info">
+              <img
+                src={ gravatarPic }
+                alt="profile"
+                data-testid="header-profile-picture"
+              />
+              <h1 data-testid="header-player-name">{ name }</h1>
+              <h2 data-testid="header-score">{`Placar: ${score}`}</h2>
+            </section>
+            {cardsInfo && <QuestionCard
+              cardsInfo={ cardsInfo }
+            />}
+          </div>
         </header>
       </div>
     );

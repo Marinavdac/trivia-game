@@ -1,0 +1,26 @@
+.questionCard {
+  height: 20rem;
+  text-align: center;
+  width: 100%;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto 1rem;
+  width: 50%;
+}
+
+.options button {
+  background-color: rgb(147, 81, 233);
+  border: none;
+  border-radius: 100px;
+  color: white;
+  margin-bottom: 5px;
+  padding: 0.3rem 0;
+}
+
+.options button:hover {
+  background-color: rgb(175, 127, 238);
+  cursor: pointer;
+}

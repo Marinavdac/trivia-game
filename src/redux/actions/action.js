@@ -18,6 +18,12 @@ export const addCounter = (counter) => ({
   payload: counter,
 });
 
+export const ADD_QUESTION = 'ADD_QUESTION';
+export const addQuestion = (assertions) => ({
+  type: ADD_QUESTION,
+  payload: assertions,
+});
+
 export const FETCH_TOKEN_FAIL = 'FETCH_TOKEN_FAIL';
 export const fetchTokenFail = (err) => ({
   type: FETCH_TOKEN_FAIL,

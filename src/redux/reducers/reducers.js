@@ -3,42 +3,33 @@ import {
   ADD_PLAYER, FETCH_TOKEN_FAIL,
   FETCH_TOKEN_SUCCESS,
   ADD_SCORE,
-  ADD_COUNTER,
+  ADD_QUESTION,
 } from '../actions/action';
 
 const INITIAL_STATE = {
-  player: {
-    name: '',
-    assertions: 0,
-    score: 0,
-    counter: 1,
-    gravatarEmail: '',
-  },
+  name: '',
+  assertions: 0,
+  score: 0,
+  gravatarEmail: '',
   token: '',
 };
 
-const playerReducer = (state = INITIAL_STATE, action) => {
+const player = (state = INITIAL_STATE, action) => {
   switch (action.type) {
   case ADD_PLAYER:
-    return {
+    return ({
       ...state,
-      player: action.payload,
-    };
+      ...action.payload,
+    });
   case ADD_SCORE:
     return {
       ...state,
-      player: {
-        ...state.player,
-        score: action.payload,
-      },
+      score: state.score + action.payload,
     };
-  case ADD_COUNTER:
+  case ADD_QUESTION:
     return {
       ...state,
-      player: {
-        ...state.player,
-        counter: action.payload,
-      },
+      assertions: state.assertions + action.payload,
     };
   case FETCH_TOKEN_FAIL:
     return {
@@ -55,6 +46,6 @@ const playerReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-const rootReducer = combineReducers({ playerReducer });
+const rootReducer = combineReducers({ player });
 
 export default rootReducer;

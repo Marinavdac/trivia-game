@@ -18,6 +18,61 @@
   width: 30rem;
 }
 
+.timer {
+  background-color: rgb(81, 0, 128);
+  border-radius: 200px;
+  color: white;
+  font-size: 1.5rem;
+  margin: 1rem auto;
+  text-align: center;
+  width: 5%;
+}
+
+.questionCard {
+  height: 20rem;
+  text-align: center;
+  width: 100%;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto 1rem;
+  width: 50%;
+}
+
+.button {
+  background-color: rgb(147, 81, 233);
+  border: 3px solid transparent;
+  border-radius: 100px;
+  color: white;
+  margin-bottom: 5px;
+  padding: 0.3rem 0;
+}
+
+.button:hover {
+  background-color: rgb(175, 127, 238);
+  cursor: pointer;
+}
+
+.button-correct {
+  background-color: rgb(6, 240, 15);
+  border: 3px solid rgb(6, 240, 15);
+  border-radius: 100px;
+  color: white;
+  margin-bottom: 5px;
+  padding: 0.3rem 0;
+}
+
+.button-wrong {
+  background-color: red;
+  border: 3px solid red;
+  border-radius: 100px;
+  color: white;
+  margin-bottom: 5px;
+  padding: 0.3rem 0;
+}
+
 .game-questions {
   align-items: center;
   background-color: rgb(255, 255, 255, 0.5);

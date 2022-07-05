@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { addCounter } from '../redux/actions/action';
 import './Timer.css';
 
 class Timer extends Component {
 state = {
-  timer: 8,
+  timer: 10,
   timerId: '',
 }
 
@@ -24,9 +26,14 @@ componentWillUnmount() {
 }
 
   timeCounter = () => {
-    const { parentCallBack } = this.props;
+    const { getTimer, userHasClicked, dispatch } = this.props;
     const { timer, timerId } = this.state;
     const currentTime = timer - 1;
+    if (userHasClicked) {
+      getTimer(currentTime, true);
+      dispatch(addCounter(currentTime));
+      clearInterval(timerId);
+    }
     if (currentTime >= 0) {
       this.setState({
         timer: currentTime,
@@ -35,7 +42,7 @@ componentWillUnmount() {
       clearInterval(timerId);
     }
     if (currentTime === 0) {
-      parentCallBack(currentTime, true);
+      getTimer(currentTime, true);
     }
   }
 
@@ -48,8 +55,7 @@ componentWillUnmount() {
 }
 
 Timer.propTypes = {
-
-  parentCallBack: PropTypes.func.isRequired,
+  getTimer: PropTypes.func.isRequired,
 };
 
-export default Timer;
+export default connect()(Timer);

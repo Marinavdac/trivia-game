@@ -1,25 +1,47 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { connect } from 'react-redux';
+import { addScore, addCounter } from '../redux/actions/action';
 import './QuestionCard.css';
 
+const questionDifficulty = {
+  easy: 1,
+  medium: 2,
+  hard: 3,
+};
 class QuestionCard extends React.Component {
   state = {
     index: 0,
-    hasClicked: false,
     answerStatus: {
       wrong: 'button',
       correct: 'button',
     },
   }
 
-  handleClick = () => {
+  handleClick = ({ target }) => {
+    const { dispatch, cardsInfo, getClickEvent, userHasClicked, counter } = this.props;
+    const { index } = this.state;
+    const difficulty = questionDifficulty[cardsInfo[index]?.difficulty];
+    getClickEvent();
+    // console.log('counter', state.playerReducer.player.counter)    
     this.setState({
       answerStatus: {
         wrong: 'button-wrong',
         correct: 'button-correct',
       },
-      hasClicked: true,
     });
+    console.log('userHasClicked', userHasClicked);
+    console.log('difficulty', difficulty);
+    console.log('timer from questioncard', counter);
+    if (target.id === 'correct-answer') {
+      const rightAnswer = 10;
+      const total = rightAnswer * difficulty * counter;
+      dispatch(addScore(total));
+    } else if (target.id.includes('wrong-answer')) {
+      const wrongAnswer = 1;
+      const totalWrong = wrongAnswer * difficulty * counter;
+      dispatch(addScore(totalWrong));
+    }
   };
 
     nextQuestion = () => {
@@ -32,10 +54,7 @@ class QuestionCard extends React.Component {
           wrong: 'button',
           correct: 'button',
         },
-        hasClicked: false,
       }));
-
-      console.log('index', index);
     };
 
     render() {
@@ -71,7 +90,6 @@ class QuestionCard extends React.Component {
                     onClick={ this.handleClick }
                     disabled={ isTimeOut }
                     id={ answersIds[i] }
-
                   >
                     {answer}
                   </button>
@@ -94,6 +112,10 @@ class QuestionCard extends React.Component {
     }
 }
 
+const mapStateToProps = (state) => ({
+  counter: state.playerReducer.player.counter,
+});
+
 QuestionCard.propTypes = {
   cardsInfo: PropTypes.shape({
     map: PropTypes.func,
@@ -103,4 +125,4 @@ QuestionCard.propTypes = {
 
 };
 
-export default QuestionCard;
+export default connect(mapStateToProps)(QuestionCard);

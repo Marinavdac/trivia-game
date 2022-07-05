@@ -58,10 +58,10 @@ render() {
 }
 
 const mapStateToProps = (state) => ({
-  email: state.playerReducer.player.gravatarEmail,
-  name: state.playerReducer.player.name,
-  score: state.playerReducer.player.score,
-  assertions: state.playerReducer.player.assertions,
+  email: state.player.gravatarEmail,
+  name: state.player.name,
+  score: state.player.score,
+  assertions: state.player.assertions,
 });
 
 Feedback.propTypes = {

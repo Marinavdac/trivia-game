@@ -6,6 +6,18 @@ export const addPlayer = (playerInfo) => ({
   payload: playerInfo,
 });
 
+export const ADD_SCORE = 'ADD_SCORE';
+export const addScore = (playerScore) => ({
+  type: ADD_SCORE,
+  payload: playerScore,
+});
+
+export const ADD_COUNTER = 'ADD_COUNTER';
+export const addCounter = (counter) => ({
+  type: ADD_COUNTER,
+  payload: counter,
+});
+
 export const FETCH_TOKEN_FAIL = 'FETCH_TOKEN_FAIL';
 export const fetchTokenFail = (err) => ({
   type: FETCH_TOKEN_FAIL,

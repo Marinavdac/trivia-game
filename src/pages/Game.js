@@ -12,8 +12,9 @@ class Game extends Component {
   state = {
     cardsInfo: [],
     responseCode: 0,
-    // counter: 0,
+    counter: 0,
     isTimeOut: false,
+    userHasClicked: false,
   }
 
   async componentDidMount() {
@@ -26,16 +27,25 @@ class Game extends Component {
   }
 
   getTimer = (timerState, timeOut) => {
+    // const { dispatch } = this.props;
     this.setState({
-      // counter: timerState,
+      counter: timerState,
       isTimeOut: timeOut,
+    });
+    // dispatch(addCounter(counter));
+    // console.log("counter no game", this.state.counter)
+  }
+
+  getClickEvent = () => {
+    this.setState({
+      userHasClicked: true,
     });
   }
 
   render() {
     const { email, name, score, history } = this.props;
     const gravatarPic = getAvatar(email);
-    const { cardsInfo, responseCode, isTimeOut } = this.state;
+    const { cardsInfo, responseCode, isTimeOut, userHasClicked, counter } = this.state;
     const invalidToken = 3;
     return (
       <div className="trivia-game-screen">
@@ -57,12 +67,14 @@ class Game extends Component {
               <h2 data-testid="header-score">{`Placar: ${score}`}</h2>
             </section>
             <Timer
-              parentCallBack={ this.getTimer }
+              getTimer={ this.getTimer }
               isTimeOut={ isTimeOut }
+              userHasClicked={ userHasClicked }
             />
             {cardsInfo && <QuestionCard
               cardsInfo={ cardsInfo }
               isTimeOut={ isTimeOut }
+              getClickEvent={ this.getClickEvent }
             />}
           </div>
         </header>

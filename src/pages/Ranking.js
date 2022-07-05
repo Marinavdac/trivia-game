@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Ranking extends Component {
+  btnHome = () => {
+    const { history } = this.props;
+    history.push('/');
+  }
+
   render() {
     return (
       <>
         <button
           type="button"
-          data-testeid="btn-go-home"
+          data-testid="btn-go-home"
+          onClick={ this.btnHome }
         >
           Volte ao início
         </button>
@@ -15,5 +22,11 @@ class Ranking extends Component {
     );
   }
 }
+
+Ranking.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default Ranking;

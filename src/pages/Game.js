@@ -20,6 +20,7 @@ class Game extends Component {
   async componentDidMount() {
     const tokenLocalStorage = localStorage.getItem('token');
     const resultApi = await fetchApiGame(tokenLocalStorage);
+    console.log(resultApi);
     this.setState({
       cardsInfo: resultApi.results,
       responseCode: resultApi.response_code,

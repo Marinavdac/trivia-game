@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import getAvatar from '../services/fetchGravatar';
+import './styles/Ranking.css';
 
 class Ranking extends Component {
   state = {
@@ -33,29 +34,36 @@ class Ranking extends Component {
       const juntatudo = [...ranking, teste];
       localStorage.setItem('ranking', JSON.stringify(juntatudo));
       const estado = JSON.parse(localStorage.getItem('ranking'));
-      const esse = estado.sort(function (a, b) {
+      const sortState = estado.sort(function (a, b) {
         return b.score - a.score;
       });
-      this.setState({ rankingState: estado });
+      this.setState({ rankingState: sortState });
     }
   };
 
   render() {
     const { rankingState } = this.state;
     return (
-      <>
-        <button type="button" data-testid="btn-go-home" onClick={ this.btnHome }>
-          Volte ao início
-        </button>
-        <h1 data-testid="ranking-title">Ranking</h1>
+      <div className="ranking-page">
+        <h1 data-testid="ranking-title" className="ranking-title">Ranking</h1>
+        <div className='players-ranking'>
         {rankingState?.map(({ email, score, name }, index) => (
-          <div key={ index }>
-            <img src={ email } alt="gravatar" />
-            <p data-testid={`player-name-${ index }`}>{ name }</p>
-            <p data-testid={`player-score-${ index }`}>{ score }</p>
+          <div key={ index } className="player-ranking">
+            <img src={ email } alt="gravatar" className="gravatar-ranking"/>
+            <p data-testid={`player-name-${ index }` } className="name-ranking">{ name }</p>
+            <p data-testid={`player-score-${ index }`} className="score-ranking">{ score }</p>
           </div>
         ))}
-      </>
+        </div>
+        <button 
+        ype="button"
+        data-testid="btn-go-home"
+        onClick={ this.btnHome }
+        className="btn-ranking"
+        >
+          Volte ao início
+        </button>
+      </div>
     );
   }
 }

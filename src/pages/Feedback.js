@@ -73,8 +73,12 @@ render() {
               />
               <h1>Could be better...</h1>
               <a href="https://giphy.com/gifs/sad-baby-upset-9Y5BbDSkSTiY8"> </a>
-              <p data-testid="feedback-total-score">{ `Final score:  ${score} points` }</p>
-              <p data-testid="feedback-total-question">{`Can you get more than ${assertions} next time? ` }</p>
+              <p data-testid="feedback-total-score">
+                { `Final score:  ${score} points` }
+              </p>
+              <p data-testid="feedback-total-question">
+                {`Can you get more than ${assertions} next time? ` }
+              </p>
             </div>
           )}
       </div>

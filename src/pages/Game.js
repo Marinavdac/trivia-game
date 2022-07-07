@@ -170,6 +170,7 @@ render() {
               {(cardsInfo[index]?.question)
                 ?.replaceAll(/&quot;/g, '"')
                 ?.replaceAll(/&quot39;/g, '"')
+                ?.replaceAll(/&#039;s/g, '"')
                 ?.replaceAll(/&#39;/g, '"')}
             </p>
 

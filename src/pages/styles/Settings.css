@@ -1,0 +1,32 @@
+
+.settings-button-link {
+  background-color: #eec36e;
+  border: none;
+  border-radius: 100px;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  width: 20%;
+}
+
+.settings-button-link a {
+ text-decoration: none;
+ color: inherit;
+}
+
+.settings-page {
+  display: flex;
+  gap: 3rem;
+  justify-content: space-around;
+  line-height: 3rem;
+  letter-spacing: 0.2rem;
+  text-align: center;
+  width: 20rem;
+}
+
+.settings-checkbox {
+  display: flex;
+  flex-direction: column;
+}

@@ -15,21 +15,24 @@
 }
 
 .game-image {
-  width: 30rem;
+  
+  width: 26.5rem;
 }
 
 .timer {
   background-color: rgb(81, 0, 128);
-  border-radius: 200px;
+  border: 0.2rem solid transparent;
+  border-radius: 20rem;
   color: white;
   font-size: 1.5rem;
   margin: 1rem auto;
   text-align: center;
+  padding: .3rem;
   width: 5%;
 }
 
 .questionCard {
-  height: 20rem;
+  height: 17rem;
   text-align: center;
   width: 100%;
 }
@@ -77,13 +80,13 @@
   align-items: center;
   background-color: rgb(255, 255, 255, 0.5);
   border: 3px solid gold;
-  border-radius: 10px;
+  border-radius: 1rem;
   box-shadow: 0 0 3em gold;
   color: rgb(92, 0, 128);
   display: flex;
   margin: 1rem auto;
-  min-height: 23em;
-  min-width: 80rem;
+  min-height: 20em;
+  width: 80rem;
   padding: 2rem;
 }
 
@@ -97,10 +100,28 @@
   text-align: center;
 }
 
-.correct {
-  border: 3px solid rgb(6, 240, 15);
+.next {
+  width: 5rem;
 }
 
-.wrong {
-  border: 3px solid red;
+.giphy-embed {
+  border-radius: 1.5rem;
+}
+
+.feedback {
+  gap: 3rem;
+  margin-top: 5rem;
+  max-width: 40rem;
+}
+
+.feedback button {
+  background-color: #eec36e;
+  border: none;
+  border-radius: 100px;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  width: 60%;
 }

@@ -158,9 +158,9 @@ render() {
             data-testid="header-profile-picture"
           />
           <h1 data-testid="header-player-name">{name}</h1>
-          <h2 data-testid="header-score">{`Placar: ${score}`}</h2>
+          <h2 data-testid="header-score">{`Score: ${score}`}</h2>
         </section>
-        <h1>{timer}</h1>
+        <h1 className="timer">{timer}</h1>
         <div className="questionCard">
           <p data-testid="question-category">
             {`Category: ${cardsInfo[index]?.category}`}
@@ -194,6 +194,7 @@ render() {
 && (
   <button
     type="button"
+    className="button next"
     data-testid="btn-next"
     onClick={ this.nextQuestion }
   >

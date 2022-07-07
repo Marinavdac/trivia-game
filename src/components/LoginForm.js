@@ -35,7 +35,7 @@ render() {
         />
         <div className="login-form">
           <label htmlFor="player-name">
-            Nome:
+            Name:
             <input
               data-testid="input-player-name"
               type="text"

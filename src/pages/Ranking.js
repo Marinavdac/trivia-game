@@ -9,7 +9,7 @@ class Ranking extends Component {
 
   render() {
     return (
-      <>
+      <div className="trivia-game-screen">
         <button
           type="button"
           data-testid="btn-go-home"
@@ -18,7 +18,7 @@ class Ranking extends Component {
           Volte ao início
         </button>
         <h1 data-testid="ranking-title">Ranking</h1>
-      </>
+      </div>
     );
   }
 }

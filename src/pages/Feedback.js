@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import getAvatar from '../services/fetchGravatar';
+import './styles/Game.css';
 
 class Feedback extends Component {
 handleClickPlayAgain = () => {
@@ -19,40 +20,85 @@ render() {
   const gravatarPic = getAvatar(email);
   const three = 3;
   return (
-    <>
-      <header>
-        <img
-          src={ gravatarPic }
-          alt="profile"
-          data-testid="header-profile-picture"
-        />
-        <h1 data-testid="header-player-name">{ name }</h1>
-        <h2 data-testid="header-score">{ score }</h2>
-      </header>
-      <div data-testid="feedback-text">
+    <div className="trivia-game-screen">
+      <div
+        className="game-questions feedback"
+        data-testid="feedback-text"
+      >
+        <section className="player-header-info">
+          <img
+            src={ gravatarPic }
+            alt="profile"
+            data-testid="header-profile-picture"
+          />
+          <h1 data-testid="header-player-name">{ name }</h1>
+          <h2 data-testid="header-score">{ score }</h2>
+        </section>
         {assertions >= three
-          ? <h1>Well Done!</h1>
-          : <h1>Could be better...</h1>}
+          ? (
+            <div>
+              <iframe
+                title="happy-results"
+                src="https://giphy.com/embed/DffShiJ47fPqM"
+                width="240"
+                height="168"
+                frameBorder="0"
+                className="giphy-embed"
+                allowFullScreen
+              />
+              <h1>Well done!</h1>
+              <a href="https://giphy.com/gifs/DffShiJ47fPqM"> </a>
+              <p data-testid="feedback-total-score">
+                {
+                  `Final score: ${score} points`
+                }
+
+              </p>
+              <p data-testid="feedback-total-question">
+                {`You got ${assertions} right `}
+
+              </p>
+            </div>
+          )
+          : (
+            <div>
+              <iframe
+                title="sad-results"
+                src="https://giphy.com/embed/9Y5BbDSkSTiY8"
+                width="240"
+                height="186"
+                frameBorder="0"
+                className="giphy-embed"
+                allowFullScreen
+              />
+              <h1>Could be better...</h1>
+              <a href="https://giphy.com/gifs/sad-baby-upset-9Y5BbDSkSTiY8"> </a>
+              <p data-testid="feedback-total-score">{ `Final score:  ${score} points` }</p>
+              <p data-testid="feedback-total-question">{`Can you get more than ${assertions} next time? ` }</p>
+            </div>
+          )}
       </div>
-      <div>
-        <p data-testid="feedback-total-score">{ score }</p>
-        <p data-testid="feedback-total-question">{ assertions }</p>
+      <div className="feedback">
+        {/* <p data-testid="feedback-total-score">{ score }</p>
+        <p data-testid="feedback-total-question">{ assertions }</p> */}
+        <button
+          className="button"
+          type="button"
+          data-testid="btn-play-again"
+          onClick={ this.handleClickPlayAgain }
+        >
+          Play Again
+        </button>
+        <button
+          type="button"
+          data-testid="btn-ranking"
+          className="button"
+          onClick={ this.handleClickRanking }
+        >
+          Ranking
+        </button>
       </div>
-      <button
-        type="button"
-        data-testid="btn-play-again"
-        onClick={ this.handleClickPlayAgain }
-      >
-        Play Again
-      </button>
-      <button
-        type="button"
-        data-testid="btn-ranking"
-        onClick={ this.handleClickRanking }
-      >
-        Ranking
-      </button>
-    </>
+    </div>
   );
 }
 }

@@ -74,3 +74,8 @@
   background-color: rgba(248, 248, 248, 0.1);
   cursor: auto;
 }
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: white;
+  transition: background-color 5000s ease-in-out 0s;
+}

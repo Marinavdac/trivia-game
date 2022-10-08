@@ -1,4 +1,4 @@
-# Projeto Trivia
+# :star: Projeto Trivia :star:
 
 Esse projeto foi realizado durante o curso da Trybe, no módulo de Front-end juntamente com [Helena Rodrigues](https://github.com/Marinavdac), que além de desenvolver a maior parte dos testes, é a responsável pelo Design e CSS! (L) Na maior parte dos passos para consumir a API e montar o aplicativo, utilizamos o pair programming e pensamos em soluções em conjunto.
 
@@ -11,9 +11,9 @@ Para ver a aplicação rodando, e também se divertir testando os seus conhecime
 
 ## Como Instalar:
 
-* Clone o repositório: Nesse [Link](git@github.com:Marinavdac/trivia-game.git)
-* Na pasta da aplicação rode *npm install*
-* Após a instalação, rode o comando *npm start* para ver a aplicação no seu Browser Local
+* Clone o repositório
+* Na pasta da aplicação, no terminal use *npm install* para instalar as dependências da aplicação
+* Após a instalação, utilize o comando *npm start* para ver a aplicação no seu Browser Local
 
 
 ## Desenvolvimento
@@ -22,7 +22,7 @@ O Trivia Star é um jogo de perguntas e respostas, desenvolvido em React e com R
 
 * Fazer login no jogo utilizando o nome e seu email e gravatar - se houver
 * Acessar a página do jogo, onde poderá escolher a resposta para cada pergunda apresentada, somando pontos a cada acerto
-* Durante o Timer de 30 segundos, a pessoa usuária poderá escolher uma das respostas: erradas, não pontuará, se acertar, ganhará 3 pontos.
+* Durante o Timer de 30 segundos, a pessoa usuária poderá escolher uma das respostas: Ganhará 3 pontos a cada acerto e 0 nos erros.
 * Caso a pessoa não responda durante o Timer, a resposta será considerada errada 
 * Assim que a pessoa responder as 5 perguntas, será redirecionada para uma tela onde poderá ver sua pontuação
 * A pessoa ainda poderá visualizar o ranking com pontuação de todos os participantes
@@ -38,4 +38,7 @@ O Trivia Star é um jogo de perguntas e respostas, desenvolvido em React e com R
 * Escrever testes para garantir que sua aplicação possua uma boa cobertura de testes.
 
 
+## License
+Distributed under the MIT License. See LICENSE.md for more information.
 
+Made with 🖤

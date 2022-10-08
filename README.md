@@ -3,7 +3,9 @@
 Esse projeto foi realizado durante o curso da Trybe, no módulo de Front-end juntamente com [Helena Rodrigues](https://github.com/Marinavdac), que além de desenvolver a maior parte dos testes, é a responsável pelo Design e CSS! (L) Na maior parte dos passos para consumir a API e montar o aplicativo, utilizamos o pair programming e pensamos em soluções em conjunto.
 
 
-## Prévia
+## App
+
+Para ver a aplicação rodando, e também se divertir testando os seus conhecimentos, clique [aqui](http://star-trivia-game.surge.sh/)
 
 ![Trivia-Star-2gameplays-45s-ok-apresentação](https://user-images.githubusercontent.com/76450683/194683177-4e4a9153-a858-48e0-bc85-4f03c5b3086c.gif)
 
